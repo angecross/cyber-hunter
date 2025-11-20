@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyber-Hunter | Kali Ops Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --neon-cyan: #00f3ff;
+        --neon-green: #00ff9d;
+        --neon-red: #ff0055;
+        --dark-bg: #050b14;
+        --panel-bg: rgba(10, 20, 40, 0.6);
+      }
+      
+      body {
+        font-family: 'Rajdhani', sans-serif;
+        background-color: var(--dark-bg);
+        color: #e2e8f0;
+        overflow: hidden; /* Géré par les conteneurs internes */
+      }
+      
+      .font-mono {
+        font-family: 'JetBrains Mono', monospace;
+      }
+
+      /* Background Grid Effect */
+      .cyber-grid {
+        background-size: 40px 40px;
+        background-image:
+          linear-gradient(to right, rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+        mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+      }
+
+      /* Custom Scrollbar - Version Fine */
+      ::-webkit-scrollbar {
+        width: 3px; /* Plus fin */
+        height: 3px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1e293b; 
+        border-radius: 2px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--neon-cyan);
+      }
+
+      /* Classes utilitaires pour cacher/montrer scrollbar */
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(0, 243, 255, 0.2);
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+         background: rgba(0, 243, 255, 0.6);
+      }
+
+      /* CRT Scanline Effect for Terminal */
+      .crt-screen {
+        position: relative;
+        overflow: hidden;
+      }
+      .crt-screen::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+        z-index: 10;
+        background-size: 100% 2px, 3px 100%;
+        pointer-events: none;
+      }
+      
+      /* Glass Panel Effect - Enhanced Glassmorphism */
+      .cyber-panel {
+        background: rgba(10, 20, 40, 0.5); /* Plus transparent */
+        backdrop-filter: blur(16px);       /* Flou plus prononcé */
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(0, 243, 255, 0.1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Ombre pour la profondeur */
+      }
+      
+      .cyber-border-b {
+        border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+      }
+
+      /* Glitch Text Animation */
+      .glitch-hover:hover {
+        animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+        color: var(--neon-cyan);
+      }
+      @keyframes glitch {
+        0% { transform: translate(0) }
+        20% { transform: translate(-2px, 2px) }
+        40% { transform: translate(-2px, -2px) }
+        60% { transform: translate(2px, 2px) }
+        80% { transform: translate(2px, -2px) }
+        100% { transform: translate(0) }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root" class="h-screen w-screen overflow-hidden bg-[#050b14]"></div>
+  </body>
+</html>

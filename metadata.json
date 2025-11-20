@@ -1,0 +1,5 @@
+{
+  "name": "Cyber-Hunter",
+  "description": "Plateforme d'entraînement tactique pour Kali Linux et OSINT. Simulation de terminaux, cours interactifs et base de données d'outils de hacking.",
+  "requestFramePermissions": []
+}
